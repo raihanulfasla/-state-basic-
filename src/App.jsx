@@ -5,16 +5,21 @@ import './App.css'
 import Home from './Home'
 
 function App() {
-  const[state,setState]=useState(6);
+  const[state,setState]=useState(0);
+  const[color,setColor]=useState("")
 
-  const myfun=(e)=>{
-    console.log('function');
-    setState(e);
-  }
+  const increment=()=>setState(state+1);
+  const decrement=()=> state===0 ? "" :setState(state-1)
+  const reset=()=>setState(0)
+  const input=(e)=>setColor(e)
+
+
+
+
 
   return (
     <>
-    <Home data={'data'} state={state} fun={myfun}/> 
+    <Home  increment={increment} decrement ={decrement} state={state} reset={reset} input={input} color={color}/> 
     </>
   )
 }
